@@ -1,0 +1,283 @@
+:root {
+    --primario: #061524;
+    --primarioClaro: #00172c;
+    --secundario: #007e2e;
+    --secundarioClaro: #26c963;
+    --oscuro: #000;
+    --blanco: #fff;
+    --fuentePrincipal: "Poppins", sans-serif; /* este código lo sacas de google fonts */
+}
+
+/** Globales **/
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* para el 1rem=10px solo es este paso */
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 1.5; /* no es en 1.5px, es 1.5 de la base de la fuente*/
+    background-color: var(--primarioClaro);
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+    color: var(--secundarioClaro);
+    font-family: var(--fuentePrincipal);
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+h3 {
+    font-size: 2.4rem;
+}
+
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%; /* re lol */
+    /* el ancho de todas las imágenes será completo */
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+/** Header **/
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.header__logo {
+    margin: 2rem auto;
+}
+
+/** Footer **/
+
+.footer {
+    background-color: var(--primario);
+    padding: 1rem 0; /* recuerda que no puedes poner auto en derecha e izquierda */
+    margin-top: 2rem;
+}
+
+.footer__texto {
+    text-align: center;
+    font-family: var(--fuentePrincipal);
+    font-size: 2.2rem;
+}
+
+/** Navegación **/
+
+.navegacion {
+    background-color: var(--primario);
+    padding: 2rem 0; /* no le puedes poner auto en vez de 0 */
+    display: flex; /* utilizamos flexbox para los elementos de cada contenedor */
+    justify-content: center;
+    gap: 2rem; /* separa los elementos */
+}
+
+.navegacion__enlace {
+    color: var(--blanco);
+    font-size: 2.5rem;
+    font-family: var(--fuentePrincipal);
+    font-weight: 700;
+}
+
+.navegacion__enlace--activo,
+.navegacion__enlace:hover {
+    color: var(--secundarioClaro);
+}
+
+/** Grid **/
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem; /* es row-gap y column-gap al mismo tiempo */
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/** Producto **/
+
+.producto {
+    background-color: var(--primario);
+    padding: 1rem;
+}
+
+/* .producto__imagen {
+    width: 100%;
+} */
+
+.producto__nombre {
+    font-size: 3rem;
+}
+
+.producto__precio {
+    font-size: 2rem;
+    color: var(--secundarioClaro);
+}
+
+.producto__nombre,
+.producto__precio {
+    font-family: var(--fuentePrincipal);
+    font-weight: 700;
+    text-align: center;
+    margin: 1rem 0; /* por defecto existe un margen en los párrafos (no sé pq pero existe, lo puedes ver en la consola del navegador) */
+    line-height: 1.2; /* de nuevo, no es px. aqui achicamos un poco el original (1.5) */
+}
+
+/** Gráfico **/
+
+.grafico {
+    grid-column: 1 / 3;
+    height: 45rem; /* como está en un background creo que no tiene altura, !!! creo que esto solo sucede cuando se toma desde la 1era columna hasta la última
+    exacto, tiene sentido.
+    cuando no tomas todo el ancho existe un elemento al costado que te hace encajar todo (pq se toma su altura), mientras que cuando no tomas todo el ancho pues no tiene ningun elemento del cual tomar toda su altura, eureka! */
+    background-repeat: no-repeat;
+    background-size: cover; /* cubrir todo el espacio */
+}
+
+.grafico--camisas {
+    grid-row: 2 / 3;
+    background-image: url(../img/grafico1.jpg);
+}
+
+.grafico--node {
+    grid-row: 5 / 6;
+    background-image: url(../img/grafico2.jpg);
+}
+
+@media (min-width: 768px) {
+    .grafico--node {
+        grid-column: 2 / 4;
+        grid-row: 5 / 6;
+    }
+}
+
+/** NOSOTROS **/
+
+/* Imagenes */
+
+.nosotros {
+    display: grid;
+    /* grid-template-rows: repeat(2, auto); */ /* innecesario creo */
+}
+
+@media (min-width: 768px) {
+    .nosotros {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+
+.nosotros__imagen {
+    grid-row: 1 / 2;
+    /* width: 100%; */
+}
+
+@media (min-width: 768px) {
+    .nosotros__imagen {
+        grid-column: 2 / 3;
+    }
+}
+
+/* Bloques */
+
+.bloques {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .bloques {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.bloque {
+    text-align: center; /* al parecer tmb centra la imagen */
+}
+
+/* .bloque__imagen {
+    width: 100%;
+} */
+
+.bloque__titulo {
+    margin: 0; /* casi todos los headings tienen margenes arriba y abajo */
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+
+/** Producto **/
+
+@media (min-width: 768px) {
+    .camisa {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.formulario__campo {
+    border: 1rem solid var(--primario); /* condensa border-width border-style y border-color en 1 solo*/
+    padding: 1rem;
+    background-color: transparent;
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}
+
+.formulario__submit {
+    grid-column: 1 / 3;
+    background-color: var(--secundarioClaro);
+    padding: 2rem;
+    color: var(--oscuro);
+    font-family: var(--fuentePrincipal);
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.formulario__submit:hover {
+    cursor: pointer;
+    background-color: var(--secundario);
+}

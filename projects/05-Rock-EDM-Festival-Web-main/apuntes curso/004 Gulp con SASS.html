@@ -1,0 +1,29 @@
+<!-- ! compilando SASS con Gulp
+escribe tu codigo en el nuevo archivo gulpfile.js -> continua en el comentario llamado "compilando SASS con Gulp"
+* 1. compilando con npx:zz
+se requiere instalar un (plugin) conector entre gulp y sass: gulp-sass (dependencia)
+instalando: terminal -> npm i -D gulp-sass
+en dev dependencies se instalara "gulp-sass"
+en tu gulpfile.js debes establecer tu codigo de la siguiente manera: const { sass } = require("gulp-sass")(require("sass")).
+para ejecutar: terminal -> npx gulp css
+gulp css pq asi se llama tu funcion del gulpfile.js
+se crea tu carpeta build
+
+* 2. compilando con npm:
+en los "scripts" de tu package.json agrega lo siguiente -> "css": "gulp css"
+ejecuta: npm run css
+
+! agregando watch para autocompilarlo  
+continua en tu archivo gulpfile.js
+agregamos watch en nuestras funcionalidades que llamamos de gulp: const { src, dest, watch } = require("gulp");
+creamos otra funcion llamada dev para utilizar el watch y ademas mandar a llamar la funcion anterior (css)
+creamos nuestro exports.dev = dev;
+ejecutamos:
+* 1. con npx: terminal -> npx gulp dev
+* 2. con npm: añadimos en los scripts de package.json lo siguiente: "dev": "gulp dev"
+para que ejecute el codigo o script: terminal -> npm run dev
+vemos que no cierra lo de la terminal pq se sigue ejecutando... bien!
+* en cualquier momento podemos pararla desde la terminal pulsando "Ctrl + C". también podemos crear otra terminal a parte
+-->
+
+<!-- * cada que tienes un error al ejecutar tu sass debes volver a ejecutarlo desde la terminal

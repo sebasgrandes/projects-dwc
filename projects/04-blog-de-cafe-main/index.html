@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <!-- esta es la codificacion que se usa, hace posible que se vean las señas o signos usados en el español como a ñ, etc -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- esta etiqueta hace posible la compatibilidad en dispositivos moviles, tambien creo que hace posible que los media querie funcionen -->
+        <meta name="descripcion" content="Página web de blog de café" />
+        <!-- esta etiqueta es importante para el SEO, es para establecer una descripcion para el sitio web -->
+        <title>BlogdeCafé</title>
+
+        <!-- Prefetch -->
+        <!-- tiene el mismo objetivo que el preload solo que este se usa para documentos, con documentos me refiero a paginas. de esta manera se carga la pagina que crees que visitarian los usuarios despues -->
+        <link rel="prefetch" href="nosotros.html" />
+
+        <!-- Preload -->
+        <!-- recuerda que primero debes mencionar que es un preload y luego debes cargarlo -->
+        <link rel="preload" href="css/normalize.css" as="style" />
+        <link rel="stylesheet" href="css/normalize.css" />
+
+        <link
+            rel="preload"
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
+            crossorigin="crossorigin"
+            as="font"
+        />
+        <!-- el cross origin se usa cuando viene de un link externo -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="preload" href="css/stylesheet.css" as="style" />
+        <link rel="stylesheet" href="css/stylesheet.css" />
+
+        <!-- <link rel="preload" href="img/blog1.jpg" as="image" /> -> tambièn puedes cargar fotos, videos etc. pero ya no es de utilidad porque estás usando el picture -->
+    </head>
+
+    <body>
+        <header class="header">
+            <!-- en esta clase header estableces en el css una imagen como fondo, el cual para que usar webp debes establecer codigos, checalos  -->
+            <div class="contenedor">
+                <div class="barra">
+                    <a href="index.html" class="logo">
+                        <h1 class="logo__nombre no-margin centrar-texto">
+                            Blog<span class="logo__bold">DeCafé</span>
+                        </h1>
+                    </a>
+                    <nav class="navegacion">
+                        <a href="nosotros.html" class="navegacion__enlace"
+                            >Nosotros</a
+                        >
+                        <a href="cursos.html" class="navegacion__enlace"
+                            >Cursos</a
+                        >
+                        <a href="contacto.html" class="navegacion__enlace"
+                            >Contacto</a
+                        >
+                    </nav>
+                </div>
+            </div>
+            <div class="header__texto">
+                <h3 class="no-margin">Blog de Café con consejos y trucos</h3>
+                <p class="no-margin">
+                    Aprende de los expertos con las mejores recetas y consejos
+                </p>
+            </div>
+        </header>
+        <div class="contenedor contenido-principal">
+            <main class="blog">
+                <h3>Nuestro Blog</h3>
+                <article class="entrada">
+                    <!-- recuerda que el img se recomienda colocar dentro de un div -->
+                    <div class="entrada__imagen">
+                        <picture>
+                            <!-- gracias al picture le permites al navegador cargar el formato de imagen le sea compatible, pej si la 1era imagen (webp) no es compatible, entonces cargará la siguiente. Es decir, en gchrome cargara el webp, mientras que en iexplorer se ira a cargar el img -->
+                            <!-- ten en cuenta que este picture es propio para el html, por lo que no se puede usar en CSS, para CSS tendrás que usar modernizr webp (js) junto a codigo en CSS. ello te permitiría identificar si un navegador es compatible con webp o no, agregando una clase para ello. asi esta la usas para establecer codigos en css -->
+                            <source
+                                loading="lazy"
+                                srcset="img/blog1.webp"
+                                type="image/webp"
+                            />
+                            <img
+                                loading="lazy"
+                                src="img/blog1.jpg"
+                                alt="imagen blog"
+                            />
+                            <!-- el loading="lazy" sirve para realizar el lazy loading (carga diferida) de las imagenes en el navegador-->
+                        </picture>
+                    </div>
+                    <div class="entrada__contenido">
+                        <h4 class="no-margin">Tipos de Grano de Café</h4>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing
+                            elit. Veniam, earum? Ratione eius cumque maxime
+                            voluptatum vitae velit earum ullam odit. Harum,
+                            ipsam exercitationem? Corrupti architecto illum,
+                            laborum nam officiis deleniti.
+                        </p>
+                        <a href="entrada.html" class="boton boton--primario">
+                            <!-- la clase boton--primario es un ejemplo de bloque--modificador -->
+                            Leer entrada</a
+                        >
+                    </div>
+                </article>
+                <article class="entrada">
+                    <div class="entrada__imagen">
+                        <picture>
+                            <source
+                                loading="lazy"
+                                srcset="img/blog2.webp"
+                                type="image/webp"
+                            />
+                            <img
+                                loading="lazy"
+                                src="img/blog2.jpg"
+                                alt="imagen blog"
+                            />
+                        </picture>
+                    </div>
+                    <div class="entrada__contenido">
+                        <h4 class="no-margin">3 Deliciosas Recetas de Café</h4>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing
+                            elit. Veniam, earum? Ratione eius cumque maxime
+                            voluptatum vitae velit earum ullam odit. Harum,
+                            ipsam exercitationem? Corrupti architecto illum,
+                            laborum nam officiis deleniti.
+                        </p>
+                        <a href="entrada.html" class="boton boton--primario">
+                            Leer entrada</a
+                        >
+                    </div>
+                </article>
+                <article class="entrada">
+                    <div class="entrada__imagen">
+                        <picture>
+                            <source
+                                loading="lazy"
+                                srcset="img/blog3.webp"
+                                type="image/webp"
+                            />
+                            <img
+                                loading="lazy"
+                                src="img/blog3.jpg"
+                                alt="imagen blog"
+                            />
+                        </picture>
+                    </div>
+                    <div class="entrada__contenido">
+                        <h4 class="no-margin">Beneficios del Café</h4>
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing
+                            elit. Veniam, earum? Ratione eius cumque maxime
+                            voluptatum vitae velit earum ullam odit. Harum,
+                            ipsam exercitationem? Corrupti architecto illum,
+                            laborum nam officiis deleniti.
+                        </p>
+                        <a href="entrada.html" class="boton boton--primario">
+                            Leer entrada</a
+                        >
+                    </div>
+                </article>
+            </main>
+            <aside class="sidebar">
+                <h3>Nuestros Cursos y Talleres</h3>
+                <ul class="cursos no-padding">
+                    <li class="widget-curso">
+                        <h4 class="no-margin">
+                            Técnicas de Extracción de Café
+                        </h4>
+                        <p class="widget-curso__label">
+                            Precio:<span class="widget-curso__info">
+                                Gratis</span
+                            >
+                        </p>
+                        <p class="widget-curso__label">
+                            Cupo:<span class="widget-curso__info"> 20</span>
+                        </p>
+                        <a href="entrada.html" class="boton boton--secundario"
+                            >Más Información sobre nuestros cursos</a
+                        >
+                        <!-- SE COLOCA sobre nuestros cursos PORQUE A GOOGLE LE GUSTA QUE SEAS MAS DESCRIPTIVOS Y NO COLOQUES ASI SIN MAS mas informacion -->
+                    </li>
+                    <li class="widget-curso">
+                        <h4 class="no-margin">
+                            4 Recetas de Café para Principiantes
+                        </h4>
+                        <p class="widget-curso__label">
+                            Precio:<span class="widget-curso__info">
+                                Gratis</span
+                            >
+                        </p>
+                        <p class="widget-curso__label">
+                            Cupo:<span class="widget-curso__info"> 20</span>
+                        </p>
+                        <a href="entrada.html" class="boton boton--secundario"
+                            >Más Información sobre nuestros cursos</a
+                        >
+                    </li>
+                </ul>
+            </aside>
+        </div>
+        <footer class="footer">
+            <div class="contenedor">
+                <!-- mas que nada este div sirve para centrar este bloque con la clase contenedor-->
+                <div class="barra">
+                    <a href="index.html" class="logo">
+                        <h1 class="logo__nombre no-margin centrar-texto">
+                            Blog<span class="logo__bold">DeCafé</span>
+                        </h1>
+                    </a>
+                    <nav class="navegacion">
+                        <a href="nosotros.html" class="navegacion__enlace"
+                            >Nosotros</a
+                        >
+                        <a href="cursos.html" class="navegacion__enlace"
+                            >Cursos</a
+                        >
+                        <a href="contacto.html" class="navegacion__enlace"
+                            >Contacto</a
+                        >
+                    </nav>
+                </div>
+            </div>
+        </footer>
+        <script src="js/modernizr.js"></script>
+        <!-- este es para el modernizr, recuerda colocarlo en cada pagina de tu sitio web, porque el css: modernizr para el webp, lo utilizas en todas las paginas -->
+        <!-- el js se recomienda colocar justo antes del body -->
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!-- ! instalar la dependencia de SASS con NPM
+pasos para instalar la dependencia de SASS con NPM: esta dependencia se encarga de identificar el codigo de SASS, compilarlo e identificar los errores en la compilacion
+* 1. terminal -> npm install SASS
+-- en package.json podemos ver que tenemos la dependencia "dependencies" de SASS (dependencia normal).
+-- existen 2 tipos de dependencias:
+-- 1. dependencias normales "dependencies": una vez que realices un deploiment a un servidor que soporta node.js las va a instalar esas dependencias
+-- 2. dependencias de desarrollo: estas no (lo del 1ero). pero si las tendremos localmente mientras creamos nuestro proyecto. en desarrollo creo que quiere decir cuando aun estamos trabajando localmente en nuestro proyecto y todavia no lo subimos.
+-- en nuestro caso para nuestro proyecto seran dependencias de desarrollo pq: mejoraremos el codigo js, compilaremos las hojas de estilos de SASS, aligerar imagenes, etc. TODO ESTO LO HAREMOS EN DESARROLLO. PQ AL FINAL SI SUBIREMOS UN PROYECTO COMPILADO Y LISTO
+* 2. eliminar el codigo de "dependencies" de SASS
+* 3. instalar la dependencia de desarrollo de SASS: terminal -> npm install SASS --save-dev
+-- en package.json podemos ver que tenemos la dependencia "devDependencies" de SASS (dependencia de desarrollo).
+-- nos creo la carpeta node_modules. en esta carpeta se descargan las dependencias. como tenemos la de SASS, ahi tendremos una carpeta que tendra esa dependencia.
+-- también tenemos un package-lock.json: este archivo nos lo creo SASS. aqui estan las dependencias de la dependencia (SASS por ejemplo), con esto se refiere a todas las cosas que requiere para que SASS trabaje. si se puede modificar pero no se debe modificar, menos eliminar.
+-- en la carpeta node_modules veras que hay mas carpetas a parte de sass, esas demas carpetas son TODAS ESTAS DEPENDENCIAS que necesita SASS
+-- en la carpeta bin: son los binarios, son scripts que puedes ejecutar
+-- la carpeta node_modules crece mucho pq ahi estaran todas las dependencias, pero se puede eliminar sin problemas. una vez finalizado el proyecto ya se puede eliminar, debido a que se puede recuperar facilmente.
+--- supongamos que eliminamos la carpeta node_modules y queremos recuperarla: terminal -> npm install (o "npm i", mas corto). esto lo que hace es ir al package.json, busca las dependencias que estan ahi y nos recupera la carpeta de node_modules.
+--- esto es util pq en un equipo de trabajo puedes pasarle sin la carpeta node_modules para que pese menos. ya ellos también podran recuperar esa carpeta
+-->
+
+<!-- ! Compilando SASS con NPM
+algunas dependencias tienen un binario que puedes ejecutar desde NPM.
+en node_modules -> .bin -> sass. se tiene un binario de SASS.
+veamos como se utiliza:
+* 1. en tu workspace crea la carpeta src (source). dentro crear carpeta scss (aqui coloco mi codigo de SASS). dentro crear archivo app.scss
+* 2. dentro de app.scss crea el codigo SASS que gustes
+en SASS
+-- no puedes cargar una hoja de estilos de sass en tu html (debido a que el navegador no conoce la extension de SASS (.scss)). PARA ELLO TIENES QUE COMPILARLO. y ello lo haces con el package.json: tenemos la carpeta de binarios y el codigo de "scripts" en package.json
+-- el package.json puede ejecutar esos binarios y también almacenar las dependencias
+-- no todas las dependencias tienen binarios
+* 3. abre package.json, y coloca el siguiente codigo:
+"scripts": {
+    "sass": "sass src/scss:build/css"
+}
+-- el 2do "sass": es el binario (alamacenado en la carpeta .bin) el cual se abre (este contiene toda la base de conocimientos de SASS, conoce cuales son las variables, que son los mixting, etc), y el 1er "sass": es el SCRIPT que lo manda a llamar
+-- despues del 2do "sass": colocas la ruta de tu carpeta que contiene a tu SASS (para que lea tu archivo), no es necesario colocarle el mismo url de tu archivo, solo la carpeta que lo contiene debido a que esta ya lo reconoce, y lo compilara
+-- esta compilacion lo tiene que guardar en algun lugar, por lo que ":build/css" crea la carpeta en la que se compilara y que contendra las compilaciones
+* 4. ejecuta el codigo sass: terminal -> npm run sass
+-- este ultimo sass es el nombre del script, es decir, el que manda a llamar (el 1ero)
+-- ese codigo ejecuta lo que definiste en tu script de package.json
+-- una vez ejecutado crea la carpeta build, dentro esta la carpeta css y dentro esta el codigo app.css que contiene el codigo PERO COMPILADO que escribiste en tu archivo SASS
+* 5. coloca en tu HTML un <link rel="stylesheet" href="build/css/app.css">, esto ya apunta a tu hoja de estilos ya compilada
+* 6. para que el codigo sass se autocompile (escuche continuamente los cambios realizados en sass para que los compile y genere el css) debes agregar un "--watch" al codigo del paso 3, por lo que quedaria asi:
+"scripts": {
+    "sass": "sass --watch src/scss:build/css"
+}
+-- por lo que cada que generes un cambio en tu sass en la terminar se mostrará un mensaje en verde que dice "compiled..." (compilado...)
+* 7. cuando termines de realizar tu proyecto o quieras continuarlo al dia siguiente: puedes parar el autocompilado o watching (la escucha) presionando Ctrl+C en la terminal, eso lo para.
+-->
+
+<!-- !  // con los scripts mandas a llamar las dependencias // las devDependencies son las dependencias instaladas (los bins) -->

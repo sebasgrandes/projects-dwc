@@ -1,0 +1,70 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Raleway", sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+p {
+    font-size: 2rem;
+}
+
+.contenedor {
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.entrada-blog a {
+    display: inline-block;
+    background-color: #2196f3;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/** CODIGO AQUI **/
+
+@media (min-width: 768px) {
+    .contenedor-principal {
+        display: flex;
+        justify-content: space-between; /* no te olvides de este paso */
+    }
+    .sidebar {
+        flex-basis: calc(
+            20% - 1rem
+        ); /* establece una base o ancho de lo que pongas */
+    }
+    .contenido-principal {
+        flex-basis: calc(
+            60% - 1rem
+        ); /* es importante que definas esto tmb pq sino el .sidebar no medirá lo que medirá */
+    }
+    .sidebar-1 {
+        order: -1; /* muestra este contenido primero y luego los demás fluyen tal y como fueron declarados */
+    }
+}

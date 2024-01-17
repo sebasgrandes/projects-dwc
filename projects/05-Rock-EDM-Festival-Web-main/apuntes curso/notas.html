@@ -1,0 +1,50 @@
+<!-- en un archivo .json siempre tienen que ir comillas dobles: " " -->
+<!-- 
+    ! crear snippet para sass
+    ctrl + shift + p > configure user snippers > scss.json
+    configura tu snippet
+ -->
+
+<!-- 
+    usando @import para importar tus mixins: asi estaran importados globalmente, pero al llamar incluir tu mixin con @include ya no usaras el "m." que usas con el use, solo colocas @include nombredelmixin y listo 
+  -->
+
+<!-- ! snippets creados:
+  * crear mq "media query"
+  mq: @include m.| {
+    |
+  };
+  * importar mixin (en la hoja scss) "use mixins"
+  usm: @use "base/mixins" as m;
+  * hacer uso del mixin "include mixin"
+  inm: @include m.|;
+  * importar variables (en la hoja scss) "use variables"
+  usv: @use "base/variables" as v;
+
+ -->
+
+<!-- 
+  ! mejorando el performance de CSS con postcss, cssnano, autoprefixer y gulp-postcss (dependencias instaladas con npm)
+  postcss: le hace transformaciones a nuestro codigo por medio de cssnano y autoprefixer
+  las 2 siguientes no tienen gulp pq funcionan con postcss
+  cssnano: minifica (comprime) el codigo css
+  autoprefixer: se asegura de que nuestro codigo sea compatible (soportado) con todos los navegadores realizando algunas correcciones o mejoras
+  sourcemaps: hace posible que las lineas o clases que quieras buscar en tu codigo minificado de css o js lo puedas encontrar o identificar (buscando mediante el navegador con F12 los estilos)
+  terser-js: lo mismo que cssnano pero para js
+    el sourcemaps para el terser-js lo hace como que legible, basicamente crea un map de nuestro codigo original
+ -->
+
+
+<!-- ! carpetas que puedes borrar al finalizar ESTE proyecto
+  node_modules: que pesa bastante
+  package-lock.json
+  ( esas 2 se pueden recuperar al instalar tus dependencias con tu package.json, por lo que este no lo borres ) 
+  ! carpetas que no subes a producción:
+  gulpfile.js
+  package.json
+  carpeta de src
+  ! carpetas de este proyecto que subiras
+  index.html
+  carpeta build
+  carpeta video
+ -->

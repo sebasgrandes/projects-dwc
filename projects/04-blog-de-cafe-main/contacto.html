@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BlogdeCafé</title>
+
+        <link rel="stylesheet" href="css/normalize.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="css/stylesheet.css" />
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="contenedor">
+                <div class="barra">
+                    <a href="index.html" class="logo">
+                        <h1 class="logo__nombre no-margin centrar-texto">
+                            Blog<span class="logo__bold">DeCafé</span>
+                        </h1>
+                    </a>
+                    <nav class="navegacion">
+                        <a href="nosotros.html" class="navegacion__enlace"
+                            >Nosotros</a
+                        >
+                        <a href="cursos.html" class="navegacion__enlace"
+                            >Cursos</a
+                        >
+                        <a href="contacto.html" class="navegacion__enlace"
+                            >Contacto</a
+                        >
+                    </nav>
+                </div>
+            </div>
+            <div class="header__texto">
+                <h3 class="no-margin">Blog de Café con consejos y trucos</h3>
+                <p class="no-margin">
+                    Aprende de los expertos con las mejores recetas y consejos
+                </p>
+            </div>
+        </header>
+        <main class="contenedor">
+            <h3 class="centrar-texto">Contacto</h3>
+            <div class="contacto-bg"></div>
+            <form class="formulario">
+                <div class="campo">
+                    <label for="nombre" class="campo__label">Nombre</label>
+                    <!-- el for se utiliza para la accesibilidad, beneficia a personas con discapacidades visuales, este se usa en combinacion con el id de cada input -->
+                    <input
+                        type="text"
+                        placeholder="Tu Nombre"
+                        id="nombre"
+                        class="campo__input"
+                    />
+                </div>
+                <div class="campo">
+                    <label for="email" class="campo__label">E-mail</label>
+                    <input
+                        type="email"
+                        placeholder="Tu E-mail"
+                        id="email"
+                        class="campo__input"
+                    />
+                </div>
+                <div class="campo">
+                    <label for="mensaje" class="campo__label">Mensaje</label>
+                    <textarea
+                        name=""
+                        id="mensaje"
+                        class="campo__input campo__input--textarea"
+                    ></textarea>
+                </div>
+                <div class="campo">
+                    <input
+                        type="submit"
+                        value="Enviar"
+                        class="boton boton--primario"
+                    />
+                </div>
+            </form>
+        </main>
+        <footer class="footer">
+            <div class="contenedor">
+                <!-- mas que nada este div sirve para centrar este bloque con la clase contenedor-->
+                <div class="barra">
+                    <a href="index.html" class="logo">
+                        <h1 class="logo__nombre no-margin centrar-texto">
+                            Blog<span class="logo__bold">DeCafé</span>
+                        </h1>
+                    </a>
+                    <nav class="navegacion">
+                        <a href="nosotros.html" class="navegacion__enlace"
+                            >Nosotros</a
+                        >
+                        <a href="cursos.html" class="navegacion__enlace"
+                            >Cursos</a
+                        >
+                        <a href="contacto.html" class="navegacion__enlace"
+                            >Contacto</a
+                        >
+                    </nav>
+                </div>
+            </div>
+        </footer>
+        <script src="js/modernizr.js"></script>
+    </body>
+</html>

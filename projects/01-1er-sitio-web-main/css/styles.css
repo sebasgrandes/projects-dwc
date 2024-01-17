@@ -1,0 +1,283 @@
+:root {
+    --primary: #00b341;
+    --secondary: #1e88f7;
+    --light: #ffffff;
+    --dark: #0c0900;
+    --gray: #444444;
+}
+
+/* ----------------------- GLOBAL ----------------------- */
+
+html {
+    font-size: 62.5%; /* rem1 */
+    box-sizing: border-box; /* box-model 1 */
+    scroll-snap-type: y mandatory;
+}
+
+.header,
+.skills,
+.formulario {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+/* box-model 2 */
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-size: 16px; /* rem2 */
+    font-family: Montserrat;
+    font-weight: 400;
+    background-image: linear-gradient(to top, #aefdcb 0%, var(--light) 100%);
+}
+
+/* ----------------------- TIPOGRAPHY ----------------------- */
+
+h1 {
+    font-size: 3.8rem;
+}
+
+h2 {
+    font-size: 2.8rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+}
+
+h1,
+h2,
+h3 {
+    text-align: center;
+}
+
+/* Header */
+
+.header {
+    text-align: center;
+    font-size: 2.8rem;
+    padding: 2rem;
+}
+
+.header span {
+    font-size: 1.8rem;
+}
+
+/* Navigation menu */
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto; /* ayuda a alinear el menu al centro */
+}
+
+.nav-bg {
+    background-color: #009b39;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary);
+
+    /* align-items: center; -> esto solo alinea los items "a" que son inline al centro, por lo que se verá como un tal inline */
+}
+
+@media (min-width: 768px) {
+    .nav-menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
+
+.nav-menu a {
+    color: var(--light);
+    font-size: 2.5rem;
+    padding: 1rem 3rem;
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+}
+
+.nav-menu a:hover {
+    background-color: var(--secondary);
+}
+
+/* Main */
+
+.hero {
+    background-image: url(../img/imagen.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 35rem;
+    position: relative; /* position 1 */
+}
+
+.container-hero {
+    background-color: rgb(0 0 0 / 70%);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute; /* position 2 */
+}
+
+.hero h1 {
+    font-size: 3rem;
+    color: var(--light);
+}
+
+.ubicacion {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+}
+
+.ubicacion p {
+    color: var(--light);
+}
+
+.boton {
+    color: var(--light);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: var(--primary);
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    border-color: var(--light);
+    width: 90%;
+    text-align: center;
+}
+
+.boton:hover {
+    background-color: var(--secondary);
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+}
+
+.style {
+    background-color: var(--light);
+    border-radius: 2.5rem;
+    margin-top: 5rem;
+    padding: 4rem 1rem;
+
+    -webkit-box-shadow: 10px -10px 34px -12px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px -10px 34px -12px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px -10px 34px -12px rgba(0, 0, 0, 0.75);
+}
+
+@media (min-width: 768px) {
+    .skills {
+        display: grid;
+        grid: auto / repeat(2, 1fr);
+    }
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    column-gap: 2rem;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.skill p {
+    text-align: center;
+}
+
+.icono {
+    background-color: var(--primary);
+    border-radius: 50%;
+    width: 12rem;
+    height: 12rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario {
+    background-color: var(--primary);
+    width: min(
+        60rem,
+        100%
+    ); /* de 600px para abajo será un 100% para no afectar a la vista celular */
+    margin: 0 auto 5rem auto;
+    padding: 3rem 1.5rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-transform: uppercase;
+    color: var(--light);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.formulario label {
+    color: var(--light);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.inputt {
+    width: 100%; /* display:block; no funciona, quien sabe pq xuxa no */
+    height: 3.5rem;
+    border: none;
+    border-radius: 0.3rem;
+    margin-bottom: 2rem;
+}
+
+.campo textarea {
+    height: 10rem;
+}
+
+@media (min-width: 768px) {
+    .campos {
+        display: grid;
+        /* grid: auto / repeat(2, 1fr); */
+        column-gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .campo:nth-child(3),
+    .campo:nth-child(4) {
+        grid-column: 1 / 3;
+    }
+}
+
+.w-sm-100 {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .alinear-derecha {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .w-sm-100 {
+        width: auto;
+    }
+}
+
+.footer {
+    text-align: center;
+}
