@@ -12,4 +12,6 @@ Mis apuntes de la parte teórica del curso los encuentras [aquí](https://github
 
 Proyectos de HTML, CSS y JavaScript realizados como parte del curso Desarrollo Web Completo de Juan Pablo de la Torre Valdez.
 
+![224shots_so](https://github.com/sebasgrandes/projects-dwc/assets/105091502/2011138f-9ffb-474f-b524-9a535234d688)
+
 Visita la [página del curso](https://www.udemy.com/course/desarrollo-web-completo-con-html5-css3-js-php-y-mysql/?kw=desarr&src=sac/) para inscribirte.
